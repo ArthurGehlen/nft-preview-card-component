@@ -20,17 +20,113 @@ body {
 
     main {
         background-color: $card_bg_color;
-        height: 35rem;
+        height: 36rem;
         width: 22rem;
         border-radius: .8rem;
         padding: 1.5rem;
 
-        .img {
-            img {
-                height: 18rem;
+        .img_area {
+            cursor: pointer;
+            position: relative;
+            height: 19rem;
+            width: 19rem;  
+            z-index: 1; 
+
+            &::before {
+                content: url(/images/icon-view.svg);
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: $img_hover_bg_color;
                 width: 19rem;
+                height: 19rem;
                 border-radius: .5rem;
-            }    
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: -1;
+                opacity: 0;
+            }      
+
+            &::after{  
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-image: url(/images/image-equilibrium.jpg);
+                background-size: contain;
+                height: 19rem;
+                width: 19rem;
+                border-radius: .5rem;           
+            }  
+        }
+
+        .description {
+            height: 7rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            h2 {
+                color: $title_p_color;
+
+                &:hover {
+                    cursor: pointer;
+                    color: $title_hover_color;
+                }
+            }
+
+            p {
+                color: $description_p_color;
+            }
+        }
+
+        .price_section {
+            height: 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .price {
+                font-weight: 600;
+                display: flex;
+                gap: 5px;
+                color: $price_p_color;
+            }
+
+            .time_left {
+                display: flex;
+                gap: 5px;
+                color: $time_p_color;
+            }
+        }
+
+        .line {
+            height: .1rem;
+            width: 19rem;
+            background-color: $line_bg_color;
+        }
+
+        .creator {
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: $time_p_color;
+
+            span {
+                cursor: pointer;
+                color: $name_p_color;
+
+                &:hover {
+                    color: $name_hover_color;
+                }
+            }
+
+            img {
+                border: $user_image_border;
+                border-radius: 50%;
+            }
         }
     }
 }
